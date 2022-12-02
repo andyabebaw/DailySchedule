@@ -10,10 +10,10 @@ class TimeData {
     this.timeValue = timeValue;
   }
   getTense() {
-    var hours = new Date().getHours();
-    if (hours < this.timeValue) {
+    var hours = new Date().getHours()-5;
+    if (hours > this.timeValue) {
       return "past";
-    } else if (hours > this.timeValue) {
+    } else if (hours < this.timeValue) {
       return "future";
     } else {
       return "present";
