@@ -20,8 +20,15 @@ $(function () {
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
   //
+  function setTextInputOnPageLoad(){
+    $(".description").each(function () {
+      var textInput = this;
+      var text = localStorage.getItem(textInput.parentElement.id)
+      textInput.innerHTML = text;
+    })
+  }
+
   function addSaveButtonEventListeners() {
-    var saveButtons = $(".saveBtn");
     $(".saveBtn").each(function () {
       var button = this;
       var parentID = button.parentElement.id;
@@ -34,6 +41,7 @@ $(function () {
     })
   }
 
+  setTextInputOnPageLoad()
   addSaveButtonEventListeners()
   setTodaysDate()
 });
