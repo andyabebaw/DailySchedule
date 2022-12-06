@@ -10,7 +10,7 @@ class TimeData {
     this.timeValue = timeValue;
   }
   getTense() {
-    var hours = new Date().getHours()-5;
+    var hours = new Date().getHours();
     if (hours > this.timeValue) {
       return "past";
     } else if (hours < this.timeValue) {
@@ -38,7 +38,6 @@ $(function () {
 // Creates Time Element Html Code and adds it to the webpage
 function addTimeElements(){
   timeData.forEach(function (time) {
-
     var timeElement = createTimeElement(time.timeID, time.timeName, time.getTense());
     $(".container-lg").append(timeElement);
   });
